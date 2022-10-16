@@ -3,6 +3,7 @@ import Footer from '../components/Footer'
 import Header from '../components/Header'
 import { format } from 'date-fns'
 import InfoCard from '../components/InfoCard'
+import MapReact from '../components/Map'
 
 function Search({ searchResults }) {
   const router = useRouter('')
@@ -32,11 +33,14 @@ function Search({ searchResults }) {
             <p className="button">Rooms and Beds</p>
             <p className="button">More filters</p>
           </div>
-          <div className='flex flex-col'>
+          <div className="flex flex-col">
             {searchResults.map((item) => (
               <InfoCard item={item} key={item.long} />
             ))}
           </div>
+        </section>
+        <section className="hidden cursor-pointer xl:inline-flex xl:min-w-[600px]">
+          <MapReact searchResults={searchResults} />
         </section>
       </main>
 
